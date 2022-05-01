@@ -1,0 +1,44 @@
+INTRODUCTION TO QUESTENGINE:
+    QuestEngine (QE) is a minimal platform for making branching-path style RPG games
+    It runs in the command line and is infinitely scaleable for large projects
+    Users launch QE and then provide a directory in order to start a game
+
+INTENDED ADDITIONS:
+    While lacking in features currently, I intend to add quite a bit to QE
+    Planned Additions Include:
+        - QEMaker, a simple way of making QE games
+        - Support for variables and operations (most likely will require a redesign so that QE is more like a scripting language)
+    I'm sure this list will increase as time goes on and as I continue to add to the platform
+
+HOW TO PLAY A QE GAME:
+    It is easiest to put all of your QuestEngine games in the same directory as the QuestEngine executable
+    though this is certainly not required.  By default, the engine file system will use the path
+    relative to the executable, but absolute file paths can also be used.
+    All that one must do with a complete QE game installed is tell the engine which directory to open,
+    everything else should be handled by the engine itself.  If any errors occur after giving the correct
+    path to a directory, there is likely an issue with the game itself.
+
+HOW TO MAKE A GAME USING QE 1.0:
+    *** NOTE: THIS APPLIES TO QuestEngine 1.0, this may be obsolete in future releases/redesigns! ***
+    It is best for developers to create a directory named after their game to contain all of the branch files.
+
+    After creating a directory, you MUST create a file named "main.txt".  This will be the starting scene for your game
+    All branch files should follow the same pattern as "main.txt" - this format is as follows
+
+    FORMAT:
+        1st Line - Number of branch paths from this node
+        Each branch path should then have the corresponding file path on a separate line (you can also use directories to sort branches using DIR//FILE conventions)
+        After the number of choices and file paths are defined, place "#@#" on it's own line before any text that you
+        would like to be displayed to the user.
+        Remember to add a newline at the end of each file.
+        Repeat this process for each scene in your game
+
+        If the number of branch paths is set to 0 for a node, it will send the end game sequence to the engine
+        this means that you will get a game over after the text from the file is printed
+
+    LIMITATIONS:
+        For readability's sake, lines have a max character size of 1024, though this will likely never be an issue
+        This may be reduced in future revisions
+        
+        Other than that, the engine doesn't really have many limitations per se do to the fact that it is designed to
+        do something incredibly minimal in the first place.  Thus any other limitations are sort of implied.
